@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
       elevation: 0.0,
       //
       child: ListView(
+        padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
             child: Container(),
@@ -38,6 +39,13 @@ class HomePage extends StatelessWidget {
                     image: AssetImage('assets/menu-img.jpg'),
                     fit: BoxFit.cover)),
           ),
+          ListTile(
+            leading: Icon(Icons.pages, color: Colors.blue),
+            title: Text('Pages'),
+            onTap: (){
+              
+            },
+          )
         ],
       ),
     );
