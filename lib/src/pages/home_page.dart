@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:preferenciasusuarioapp/src/widgets/menu_widget.dart';
+
 class HomePage extends StatelessWidget {
   //mandar datos para las rutas es como un estandar
   static final String routeName = 'home';
@@ -10,7 +12,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Prefrencia de usuari'),
       ),
-      drawer: _crearMenu(),
+      drawer: MenuWidget(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -25,29 +27,5 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Drawer _crearMenu() {
-    return Drawer(
-      elevation: 0.0,
-      //
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            child: Container(),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/menu-img.jpg'),
-                    fit: BoxFit.cover)),
-          ),
-          ListTile(
-            leading: Icon(Icons.pages, color: Colors.blue),
-            title: Text('Pages'),
-            onTap: (){
-              
-            },
-          )
-        ],
-      ),
-    );
-  }
+ 
 }
