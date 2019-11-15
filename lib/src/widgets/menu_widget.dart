@@ -25,8 +25,8 @@ class MenuWidget extends StatelessWidget {
             onTap: () => Navigator.pushReplacementNamed(context, HomePage.routeName,)
           ),
            ListTile(
-            leading: Icon(Icons.party_mode, color: Colors.blue),
-            title: Text('party_mode'),
+            leading: Icon(Icons.eject, color: Colors.blue),
+            title: Text('Cerrer'),
             onTap: (){
               //Cerar menu con un Tap
               Navigator.pop(context);
