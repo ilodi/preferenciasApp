@@ -49,4 +49,14 @@ class PreferenciasUsuario {
   set nombreUsuario(String value) {
     _prefs.setString('nombreUsuario', value);
   }
+
+    //GETS Y SET DEL ultimaPagina
+  get ultimaPagina {
+    return _prefs.getString('ultimaPagina') ?? 'home';
+  }
+
+//establecer un valor al genero
+  set ultimaPagina(String value) {
+    _prefs.setString('ultimaPagina', value);
+  }
 }
