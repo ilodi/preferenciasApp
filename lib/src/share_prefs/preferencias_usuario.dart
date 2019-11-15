@@ -29,4 +29,24 @@ class PreferenciasUsuario {
   set genero(int value) {
     _prefs.setInt('genero', value);
   }
+
+  //GETS Y SET DEL colorSecundario
+  get colorSecundario {
+    return _prefs.getBool('colorSecundario') ?? false;
+  }
+
+//establecer un valor al genero
+  set colorSecundario(bool value) {
+    _prefs.setBool('colorSecundario', value);
+  }
+
+  //GETS Y SET DEL nombreUsuario
+  get nombreUsuario {
+    return _prefs.getString('nombreUsuario') ?? '';
+  }
+
+//establecer un valor al genero
+  set nombreUsuario(String value) {
+    _prefs.setString('nombreUsuario', value);
+  }
 }

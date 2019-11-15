@@ -6,6 +6,7 @@ import 'package:preferenciasusuarioapp/src/share_prefs/preferencias_usuario.dart
 void main() async {
 //trae las preferencia antes de que comienze la app
 //espera que haga la consulta y inirPreft
+//en toda la app hay clase
   final prefs = new PreferenciasUsuario();
   await prefs.initPreft();
 

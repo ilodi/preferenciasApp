@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:preferenciasusuarioapp/src/share_prefs/preferencias_usuario.dart';
 import 'package:preferenciasusuarioapp/src/widgets/menu_widget.dart';
-
 
 class SettingsPage extends StatefulWidget {
   //mandar datos para las rutas es como un estandar
@@ -11,28 +11,41 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _colorSecundario = true;
-  int _genero = 1;
-  String _nombre = '';
+  bool _colorSecundario;
+  int _genero;
+  String _nombre;
 //
   TextEditingController _textController;
+
+//accede a share
+  final prefs = new PreferenciasUsuario();
 
 //Ciclo de vida del estado inicial
   @override
   void initState() {
     super.initState();
 
+    _genero = prefs.genero;
+    _colorSecundario = prefs.colorSecundario;
+    _nombre = prefs.nombreUsuario;
     //nombre
     _textController = new TextEditingController(text: _nombre);
   }
 
+  _setSelecterRadio(int valor) {
+    prefs.genero = valor;
 
+    setState(() {
+      _genero = valor;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('Ajustes'),
+          backgroundColor: (prefs.colorSecundario) ? Colors.teal : Colors.blue,
         ),
         drawer: MenuWidget(),
         body: ListView(
@@ -52,7 +65,7 @@ class _SettingsPageState extends State<SettingsPage> {
               title: Text('Color Secundario'),
               onChanged: (value) {
                 setState(() {
-                  _colorSecundario = value;
+                  prefs.colorSecundario = value;
                 });
               },
             ),
@@ -76,7 +89,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 decoration: InputDecoration(
                     labelText: 'Nombre',
                     helperText: 'Nombre de la persona usando el telefono'),
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState(() {
+                    prefs.nombreUsuario = value;
+                  });
+                },
               ),
             )
           ],
